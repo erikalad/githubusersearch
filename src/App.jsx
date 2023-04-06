@@ -99,6 +99,7 @@ const App = ()=>  {
                 </Toolbar>
             </AppBar>
             </Box>
+            
              <Container sx={containerStylesLigth}>
              <Searchbar inputUser={inputUser} setInputUser={setInputUser} notFound={notFound} />
              <UserCard userState={userState} />

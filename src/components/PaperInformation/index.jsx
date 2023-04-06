@@ -11,26 +11,28 @@ export default function PaperInformation(props){
     sx={{justifyContent:"space-evenly", margin:"20px"}}
     >
         <Stack>
-            <Typography variant="h5">
-                Repos
+            <Typography variant="h5" sx={{ textAlign: "center" }}>
+                Public Repos
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="h6" sx={{ textAlign: "center" }}>
                 {userState.public_repos}
             </Typography>
         </Stack>
+        <hr></hr>
         <Stack>
-            <Typography variant="h5">
+            <Typography variant="h5" sx={{ textAlign: "center" }}>
                 Followers
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="h6" sx={{ textAlign: "center" }}>
                 {userState.followers}
             </Typography>
         </Stack>
+        <hr></hr>
         <Stack>
-            <Typography variant="h5">
+            <Typography variant="h5" sx={{ textAlign: "center" }}>
                Following
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="h6" sx={{ textAlign: "center" }}>
                 {userState.following}
             </Typography>
         </Stack>
