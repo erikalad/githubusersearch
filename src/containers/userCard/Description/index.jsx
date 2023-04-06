@@ -1,6 +1,7 @@
 import { Stack, Typography } from "@mui/material";
 import React, { Fragment } from "react";
 import PaperInformation from "../../../components/PaperInformation";
+import LocationInformation from "../../../components/LocationInformation";
 
 export default function Description(props){
     const {userState} =props
@@ -14,7 +15,7 @@ export default function Description(props){
         }
             </Stack>
           <PaperInformation userState={userState}/>
-           {/*    <LocaltionInformation /> */}
+          <LocationInformation userState={userState}/>
         </Fragment>
     )
 }
