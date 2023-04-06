@@ -1,5 +1,6 @@
 import { Stack, Typography } from "@mui/material";
 import React, { Fragment } from "react";
+import PaperInformation from "../../../components/PaperInformation";
 
 export default function Description(props){
     const {userState} =props
@@ -12,8 +13,8 @@ export default function Description(props){
         : <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nemo magnam dolorum aspernatur tenetur repellat assumenda nostrum nobis, sit illo ducimus. Voluptate nobis eum, eligendi animi eos dolorem aut fugit!</Typography>
         }
             </Stack>
-           {/*  <PaperInformation />
-            <LocaltionInformation /> */}
+          <PaperInformation userState={userState}/>
+           {/*    <LocaltionInformation /> */}
         </Fragment>
     )
 }
