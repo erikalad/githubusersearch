@@ -4,10 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 
 export default function Searcher(props){
-    const{
-        inputUser,
-        setInputUser
-    } = props
+    const{setInputUser} = props
 
     const [valueInput, setvalueInput]  = useState("")
 
