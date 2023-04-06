@@ -1,52 +1,53 @@
-import React, { useEffect, useState } from "react";
-import {Container } from '@mui/material'
-import Searcher from "./components/SearchBar";
+import React, { useState, useEffect } from "react";
+import { Container } from "@mui/material";
+import Searchbar from "./components/SearchBar";
+import { gettingUsers } from "./services/users";
+import UserCard from "./containers/UserCard";
 
-import { gettingUsers } from './services/users'
-import UserCard from "./containers/userCard";
+const App = ()=>  {
+    const [inputUser, setInputUser] = useState('octocat');
+    const [userState, setUserState] = useState(inputUser)
+    const [notFound, setNotFound] = useState(false)
 
+    const gettinUser = async (user)=> {
+        const userResponse = await gettingUsers(user)
 
-const App = () => {
-  const [userState, setUserState] = useState(inputUser)
-  const [inputUser, setInputUser] = useState("octocat")
-  const [notFound, setNotFound] = useState(false)
+        if (userState === 'octocat'){
+            localStorage.setItem('octocat',JSON.stringify(userResponse))
+        }
 
-
-  const gettinUser= async (user)=>{
-    const userResponse = await gettingUsers(user)
-    if(userState === 'octocat'){
-      localStorage.setItem('octocat', userResponse)
+        if (userResponse.message === 'Not Found'){
+            const { octocat } = localStorage
+            setInputUser(octocat)
+            setUserState(JSON.parse(octocat))
+            setNotFound(true)
+        } else {
+            setUserState(userResponse)
+            setNotFound(false)
+        }
     }
-    if(userResponse.message === "Not Found"){
-      const { octocat } = localStorage;
-      setInputUser(octocat)
-      setNotFound(true);
-    } else {
-      setUserState(userResponse)
+    
+    useEffect(()=> {
+        gettinUser(inputUser)
+    }, [inputUser])
+
+    const containerStyles = {
+        background: 'whitesmoke',
+        width: '80vw',
+        height: '500px',
+        borderRadius: '16px',
+        marginTop: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
     }
-  }
 
-  console.log(userState)
-
-  useEffect(()=>{
-    gettinUser(inputUser)
-  },[inputUser])
-
-  return(
-    <Container sx={{
-      background:"whitesmoke",
-      width:"80vh",
-      height:"500px",
-      borderRadius:"16px",
-      marginTop:"40px",
-      display:"flex",
-      flexDirection: "column",
-      alignItems: "center"
-    }}>
-    <Searcher inputUser={inputUser} setInputUser={setInputUser}/>
-    <UserCard userState={userState}/>
-    </Container>
-  )
-};
+    return (
+        <Container sx={containerStyles}>
+            <Searchbar inputUser={inputUser} setInputUser={setInputUser} notFound={notFound} />
+            <UserCard userState={userState} />
+        </Container>
+    );
+}
 
 export default App;

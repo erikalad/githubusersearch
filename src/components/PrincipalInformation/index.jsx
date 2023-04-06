@@ -11,7 +11,7 @@ export default function PrincipalInformation(props){
             direction="row"
             sx={{justifyContent:"space-between"}}>
             <Typography variant="h4">{userState.name}</Typography>
-            <Typography variant="subtitle2">{userState.created_at}</Typography>
+            <Typography variant="subtitle2"> {new Date(userState.created_at).toLocaleDateString('es-ar')}</Typography>
             </Stack>
             <Typography variant="caption">@{userState.login}</Typography>
         </Fragment>

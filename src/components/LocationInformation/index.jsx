@@ -9,9 +9,15 @@ import BusinessIcon from '@mui/icons-material/Business';
 export default function LocationInformation(props){
     const {userState} =props
     return(
-        <Grid container>
+        <Grid 
+        container
+        spacing={2} 
+        sx={{
+            marginTop:"15px"
+        }}
+        >
             <Grid item xs={6}>
-                <Stack>
+                <Stack direction="row" spacing={2}>
                     <LocationOnIcon/>
                    
                     {userState.location !== null
@@ -22,7 +28,7 @@ export default function LocationInformation(props){
                 </Stack>
             </Grid>
             <Grid item xs={6}>
-                <Stack>
+            <Stack direction="row" spacing={2}>
                 <TwitterIcon/>
                 {userState.twitter_username !== null
                          ? <Typography>{userState.twitter_username}</Typography>
@@ -31,16 +37,16 @@ export default function LocationInformation(props){
                 </Stack>
             </Grid>
             <Grid item xs={6}>
-                <Stack>
+            <Stack direction="row" spacing={2}>
                 <LanguageIcon/>
                 {userState.blog !== null
-                         ? <Typography>{userState.blog}</Typography>
+                         ? <a target="_blank" href={userState.blog}><Typography>{userState.blog}</Typography></a>
                          : <Typography>Not Available</Typography>
                      }
                 </Stack>
             </Grid>
             <Grid item xs={6}>
-                <Stack>
+            <Stack direction="row" spacing={2}>
                 <BusinessIcon/>
                 {userState.company !== null
                          ? <Typography>{userState.company}</Typography>

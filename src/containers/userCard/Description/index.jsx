@@ -7,11 +7,12 @@ export default function Description(props){
     const {userState} =props
     return(
         <Fragment>
-            <Stack>
+            <Stack
+            sx={{justifyContent:"center"}}>
         {
         userState.bio !== null 
-        ? <Typography>{userState.bio}</Typography>
-        : <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nemo magnam dolorum aspernatur tenetur repellat assumenda nostrum nobis, sit illo ducimus. Voluptate nobis eum, eligendi animi eos dolorem aut fugit!</Typography>
+        ? <Typography variant="body1">{userState.bio}</Typography>
+        : <Typography variant="body1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nemo magnam dolorum aspernatur tenetur repellat assumenda nostrum nobis, sit illo ducimus. Voluptate nobis eum, eligendi animi eos dolorem aut fugit!</Typography>
         }
             </Stack>
           <PaperInformation userState={userState}/>

@@ -5,28 +5,32 @@ export default function PaperInformation(props){
     const { userState } = props
     return(
         <Paper elevation={3}> 
-    <Stack>
+    <Stack 
+    spacing={3} 
+    direction="row"
+    sx={{justifyContent:"space-evenly", margin:"20px"}}
+    >
         <Stack>
-            <Typography>
+            <Typography variant="h5">
                 Repos
             </Typography>
-            <Typography>
+            <Typography variant="h6">
                 {userState.public_repos}
             </Typography>
         </Stack>
         <Stack>
-            <Typography>
+            <Typography variant="h5">
                 Followers
             </Typography>
-            <Typography>
+            <Typography variant="h6">
                 {userState.followers}
             </Typography>
         </Stack>
         <Stack>
-            <Typography>
+            <Typography variant="h5">
                Following
             </Typography>
-            <Typography>
+            <Typography variant="h6">
                 {userState.following}
             </Typography>
         </Stack>
