@@ -19,7 +19,7 @@ export default function Searcher(props){
     
     }
 
-    console.log(valueInput)
+   
    
 
     return(
