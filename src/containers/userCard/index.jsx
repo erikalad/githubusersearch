@@ -1,12 +1,13 @@
 import { CardMedia, Grid } from "@mui/material";
 import React from "react";
+import PrincipalInformation from "../../components/PrincipalInformation";
 
 export default function UserCard(props){
 const { userState } = props
 console.log(userState)
     return(
         <Grid
-        contenedor
+       container
         >
             {userState !== undefined &&
             <>
@@ -18,7 +19,7 @@ console.log(userState)
             />
             </Grid>
             <Grid item xs={9}>
-
+                <PrincipalInformation userState={userState}/>
             </Grid>
             </>
             }
