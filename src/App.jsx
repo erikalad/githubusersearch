@@ -3,9 +3,9 @@ import {Container } from '@mui/material'
 import Searcher from "./componets/Searchbar";
 
 const App = () => {
-  const {userStater, userState} = useState("octocat")
-  const {inputUser, setInputUser} = useState("userState")
-  
+  const [userStater, userState] = useState("octocat")
+  const [inputUser, setInputUser] = useState(userStater)
+  console.log("INPUT",inputUser)
 
   return(
     <Container sx={{

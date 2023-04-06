@@ -11,9 +11,10 @@ export default function Searcher(props){
 
     const [valueInput, setvalueInput]  = useState("")
 
-  /* const handleSubmit = () =>{
+     const handleSubmit = () =>{
+    setInputUser(valueInput)
     
-    }  */
+    } 
 
     const onSearchValueChange = (event) =>{
       let inputValue = event.target.value
@@ -44,7 +45,7 @@ export default function Searcher(props){
             }}
             />
             <IconButton
-           /*  onClick={handleSubmit} */
+           onClick={handleSubmit} 
            size="small"
             sx={{
             left:"-45px",
