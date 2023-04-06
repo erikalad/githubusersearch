@@ -7,11 +7,13 @@ export default function PrincipalInformation(props){
   
     return(
         <Fragment>
-            <Stack>
-            <Typography>{userState.name}</Typography>
-            <Typography>{userState.created_at}</Typography>
+            <Stack 
+            direction="row"
+            sx={{justifyContent:"space-between"}}>
+            <Typography variant="h4">{userState.name}</Typography>
+            <Typography variant="subtitle2">{userState.created_at}</Typography>
             </Stack>
-            <Typography>{userState.login}</Typography>
+            <Typography variant="caption">@{userState.login}</Typography>
         </Fragment>
     )
 }
